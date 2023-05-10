@@ -1,12 +1,77 @@
-<html>
-    <head>
-        <title>Rock</title>
-        <!-- Link to your script file(s) and CSS in here somewhere -->
-    </head>
-    <body>
+<!DOCTYPE HTML>
+<html lang="en">
 
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1, shrink-to-fit=no">
+    <!-- Link to your script file(s) and CSS in here somewhere -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Code+Pro&display=swap"
+        rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./scripts.js"></script>
+    <title>Final426</title>
+</head>
 
-    </body>
+<body onload="showHideShots()">
+    <section class="hideDuringResults">
+        <h1>How to Play</h1>
+        <ul>
+            <li><a href="./rules.html">Simple Rules for RPS and RPSLS</a></li>
+            <li><a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">How to Play Rock, Paper, Scissors: A Simple
+                    Guide</a></li>
+            <li><a href="https://www.instructables.com/How-to-Play-Rock-Paper-Scissors-Lizard-Spock/">How to Play Rock,
+                    Paper, Scissors, Lizard, Spock</a> </li>
+        </ul>
+    </section>
+
+    <main id="theGame">
+        <div class="hideDuringResults"><h1>The Game</h1></div>
+
+        <form id="userinput" class="" action="javascript:void(0)">
+            <div class="hideDuringResults">
+                <input type="radio" id="rps" name="game" value="rps" onclick="showHideShots()" checked>
+                <label for="rps">Play rock, paper, scissors?</label>
+            </div>
+            <div class="hideDuringResults">
+                <input type="radio" id="rpsls" name="game" value="rpsls" onclick="showHideShots()">
+                <label for="rpsls">Play rock, paper, scissors, lizard, spock?</label>
+            </div>
+            <div class="hideDuringResults">
+                <input type="checkbox" id="opponent" name="playtype" value="opponent" onclick="showHideShots()">
+                <label for="opponent">Play against an opponent?</label>
+            </div>
+            <div class="hideDuringResults">
+                <input type="radio" id="rock" name="shot" value="rock" class="rps shots" checked>
+                <label class="shots rps">Rock</label>
+
+                <input type="radio" id="paper" name="shot" value="paper" class="rps shots">
+                <label class="shots rps">Paper</label>
+
+                <input type="radio" id="scissors" name="shot" value="scissors" class="rps shots">
+                <label class="shots rps">Scissors</label>
+
+                <input type="radio" id="lizard" name="shot" value="lizard" class="rpsls shots">
+                <label class="shots rpsls">Lizard</label>
+
+                <input type="radio" id="spock" name="shot" value="spock" class="rpsls shots">
+                <label class="shots rpsls">Spock</label>
+            </div>
+
+            <div class="results">
+                <h2>Game Results</h2>
+                <p><span id="playerChoice"></span></p>
+                <p><span id="opponentChoice" class="rpslsOutput"></span></p>
+                <p><span id="gameResult" class="rpslsOutput"></span></p>
+            </div>
+            <div><button type="submit" id="play" class="hideDuringResults inlineBlock" onclick="playGame()">Play</button>
+                <button type="submit" id="startover" onclick="startOver()">Start Over</button>
+            </div>
+        </form>
+    </main>
+</body>
+
 </html>
